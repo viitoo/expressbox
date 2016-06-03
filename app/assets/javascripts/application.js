@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require animations
+//= require bootstrap.min
+//= require custom
+//= require jquery-2.1.0.min
+//= require jquery.accordion.source
+//= require jquery.easing
+//= require jquery.flexslider
+//= require jquery.parallax-1.1.3
+//= require jquery.validate.min
+//= require modernizr.custom
+//= require owl.carousel
+//= require retina
+//= require waypoints.min
