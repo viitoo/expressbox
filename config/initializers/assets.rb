@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
- Rails.application.config.assets.precompile += %w( admin.css)
+ Rails.application.config.assets.precompile += %w( admin/admin.css admin/admin.js admin/jquery.js admin/jquery-1.8.3.min.js admin/bootstrap.min.js  admin/jquery.scrollTo.min.js admin/jquery.nicescroll.js admin/jquery.sparkline.js admin/owl.carousel.js jquery.customSelect.min.js admin/bootstrap.min.js admin/jquery.scrollTo.min.js admin/jquery.nicescroll.js admin/common-scripts.js admin/jquery.stepy.js)

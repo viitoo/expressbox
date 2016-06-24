@@ -3,15 +3,15 @@
  * ------------------------------------------------------------------------------------
  *
  * jQuery Stepy is a plugin based on FormToWizard that generates a customizable wizard.
- * 
+ *
  * Licensed under The MIT License
- * 
+ *
  * @version        1.0.0
  * @since          2010.07.03
  * @author         Washington Botelho
  * @documentation  wbotelhos.com/stepy
  * @twitter        twitter.com/wbotelhos
- * 
+ *
  * Usage with default values:
  * ------------------------------------------------------------------------------------
  * $('#step').stepy();
@@ -44,7 +44,7 @@
 
 				if (id === undefined || id == '') {
 					id = 'stepy-' + $('.' + $this.attr('class')).index(this);
-					$this.attr('id', id); 
+					$this.attr('id', id);
 				}
 
 				var $titlesWrapper = $('<ul/>', { id: id + '-titles', 'class': 'stepy-titles clearfix' });
@@ -192,7 +192,7 @@
 		        				$next.click();
 		        			} else {
 			        			var $finish = $buttons.children('.finish');
-		
+
 			        			if ($finish.length) {
 			        				$finish.click();
 			        			}
@@ -319,7 +319,7 @@
 			return methods.init.apply(this, arguments);
 		} else {
 			$.error('Method ' + method + ' does not exist!');
-		} 
+		}
 	};
 
 	$.fn.stepy.defaults = {

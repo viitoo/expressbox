@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-  <%= stylesheet_link_tag  'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'admin/admin.css' %>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,900italic,900,700italic,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
 
   <%= csrf_meta_tags %>
@@ -28,5 +28,21 @@
 
 </body>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'admin/jquery.js','admin/bootstrap.min.js','admin/jquery.scrollTo.min.js','admin/jquery.nicescroll.js','admin/common-scripts.js','admin/jquery.stepy.js' %>
+
+<script>
+
+    //step wizard
+
+    $(function() {
+        $('#default').stepy({
+            backLabel: 'Anterior',
+            block: true,
+            nextLabel: 'Siguiente',
+            titleClick: true,
+            titleTarget: '.stepy-tab'
+        });
+    });
+</script>
+
 </html>
