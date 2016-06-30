@@ -1,7 +1,10 @@
 //= require admin/all-chartjs.js
 //= require admin/bootstrap-switch
+//= require admin/bootstrap-datepicker
 //= require admin/bootstrap.min
 //= require admin/common-scripts
+//= require admin/date
+//= require admin/daterangepicker
 //= require admin/dynamic-table
 //= require admin/easy-pie-chart
 //= require admin/external-dragging-calendar

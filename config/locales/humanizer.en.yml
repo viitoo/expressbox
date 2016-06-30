@@ -1,43 +1,37 @@
 en:
   humanizer:
     validation:
-      error: You're not a human
+      error: No eres humano
     questions:
-      - question: Two plus two?
-        answers: ["4", "four"]
-      - question: Jack and Jill went up the...
-        answer: hill
-      - question: What is the number before twelve?
-        answers: ["11", "eleven"]
-      - question: Five times two is what?
-        answers: ["10", "ten"]
-      - question: "Insert the next number in this sequence: 10, 11, 12, 13, 14, .."
-        answers: ["15", "fifteen"]
-      - question: "What is five times five?"
-        answers: ["25", "twenty-five"]
-      - question: "Ten divided by two is what?"
-        answers: ["5", "five"]
-      - question: What day comes after Monday?
-        answer: "tuesday"
-      - question: What is the last month of the year?
-        answer: "december"
-      - question: How many minutes are in an hour?
-        answers: ["60", "sixty"]
-      - question: What is the opposite of down?
-        answer: "up"
-      - question: What is the opposite of north?
-        answer: "south"
-      - question: What is the opposite of bad?
-        answer: "good"
-      - question: What is 4 times four?
-        answers: ["16", "sixteen"]
-      - question: What number comes after 20?
-        answers: ["21", "twenty-one"]
-      - question: What month comes before July?
-        answer: "june"
-      - question: What is fifteen divided by three?
-        answer: ["five", "5"]
-      - question: What is 14 minus 4?
-        answers: ["10", "ten"]
-      - question: "What comes next? Monday, Tuesday, Wednesday.."
-        answer: "Thursday"
+      - question: 2 + 2?
+        answers: ["4", "cuatro"]
+      - question: Capital de Peru...
+        answer: Lima
+      - question: Que numero viene antes de 12?
+        answers: ["11", "once"]
+      - question: 2 veces 5?
+        answers: ["10", "Diez"]
+      - question: "inserte el numero que sigue en la secuencia: 10, 11, 12, 13, 14, .."
+        answers: ["15", "quince"]
+      - question: "cuanto es 5 veces 5?"
+        answers: ["25", "veinticinco"]
+      - question: "10 divido entre 2?"
+        answers: ["5", "cinco"]
+      - question: Que dia viene antes de martes?
+        answer: "lunes"
+      - question: cual es el ultimo mes?
+        answer: "diciembre"
+      - question: cuantos minutos tiene 1 hora?
+        answers: ["60", "sesenta"]
+      - question: que es lo opuesto a abajo?
+        answer: "arriba"
+      - question: que es lo opuesto al norte?
+        answer: "sur"
+      - question: cual es el opuesto de malo?
+        answer: "bueno"
+      - question: que numero viene despues de 20?
+        answers: ["21", "veintiuno"]
+      - question: mes antes de julio?
+        answer: "junio"
+      - question: "Que sigue de? Lunes, Martes, Miercoles.."
+        answer: ["jueves","Jueves"]

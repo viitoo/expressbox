@@ -47,6 +47,13 @@
           <li><a id="GoToAbout" href="#about-2">Tracking</a></li>
           <li><a id="GoToFeatures" href="#features">Como importar</a></li>
           <li><a id="GoToFaq" href="#faq">Contactos</a></li>
+          <li>
+          <% if user_signed_in? %>
+             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+            <%= link_to('Login', new_user_session_path)  %>
+          <% end %>
+          </li>
           </ul>
         </nav>	<!-- /.navbar-collapse -->
 

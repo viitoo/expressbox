@@ -15,6 +15,7 @@
  *= require admin/bootstrap.min
  *= require admin/owl.carousel
  *= require admin/style-responsive
+ *= require admin/datepicker
  *= require admin/style
  *= require admin/font-awesome.css
 */

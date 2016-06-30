@@ -1,11 +1,9 @@
-<div class="container">
+<div class="container center">
   <p class="text-center"><%= image_tag "logo.png", class: "logo"%>
 <%#= render "devise/shared/links" %>
     <div class="col-lg-12">
         <section class="panel">
-            <header class="panel-heading">
-                  Registro de Usuarios
-            </header>
+
             <div class="panel-body">
                 <div class="stepy-tab">
                     <ul id="default-titles" class="stepy-titles clearfix">
@@ -23,34 +21,33 @@
 
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),html: { class: 'form-horizontal',id: "default" }) do |f| %>
-  <%= f.error_notification %>
-
+  <%= render 'devise/shared/messages' %>
         <fieldset title="Paso 1" class="step" id="default-step-0">
             <legend>Datos del usuario </legend>
             <div class="form-group">
               <label class="col-lg-2 control-label">Usuario</label>
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <%= f.input :username, required: true, autofocus: true, label: false %>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-2 control-label">Correo Electronico</label>
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <%= f.input :email, required: true, autofocus: true, label: false %>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-2 control-label">Password</label>
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <%= f.input :password, required: true, hint: ("#{@minimum_password_length} caracteres minimos" if @minimum_password_length), label: false %>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-2 control-label">Confirmacion del password</label>
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                 <%= f.input :password_confirmation, required: true , label: false%>
               </div>
             </div>
@@ -59,97 +56,118 @@
 
         <fieldset title="Paso 2" class="step" id="default-step-1" >
             <legend> Datos personales</legend>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Nombre</label>
+                <div class="col-lg-8">
+                  <%= f.input :name, required: true, autofocus: true,label: false %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Apellido</label>
+                <div class="col-lg-8">
+                  <%= f.input :lastname, required: true, autofocus: true,label: false %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">DNI</label>
+                <div class="col-lg-8">
+                  <%= f.input :dni, required: true, autofocus: true,label: false %>
+                </div>
+            </div>
+
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Direccion</label>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                   <%= f.input :address, required: true, autofocus: true,label: false %>
                 </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-2 control-label">telefono movil</label>
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                   <%= f.input :phone_mobile, required: true, autofocus: true,label: false  %>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-2 control-label">telefono de casa </label>
-              <div class="col-lg-6">
+              <div class="col-lg-8">
                   <%= f.input :phone_home, required: true, autofocus: true,label: false%>
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-lg-2 control-label">telefono del trabajo</label>
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                   <%= f.input :phone_work, required: true, autofocus: true,label: false %>
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-lg-2 control-label">fecha de nacimiento</label>
-                <div class="col-lg-6">
-                  <%= f.input :birth_date, required: true, autofocus: true,label: false%>
+                <div class="col-lg-8">
+                  <%= f.input :birth_date, required: true, autofocus: true,label: false,  as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, discard_day: false,
+                              order: [:day,:month, :year],:wrapper_html => { :style => 'display: inline' } %>
                 </div>
               </div>
+
+              <div class="form-group">
+                  <label class="control-label col-sm-4">Default Datepicker</label>
+                  <div class="col-sm-6">
+                      <input id="dp1" type="text" value="12-02-2012" size="16" class="form-control">
+                  </div>
+              </div>
+
+
+
+              <div class="form-group">
+                                          <label class="control-label col-sm-4">Starts with years view</label>
+                                          <div class="col-sm-6">
+
+
+                                              <div class="input-append date" id="dpYears" data-date="12-02-2012"
+                                                   data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                                  <input class="form-control" size="16" type="text" value="12-02-2012" readonly>
+                                                  <span class="add-on"><i class="icon-calendar"></i></span>
+                                              </div>
+                                          </div>
+                                      </div>
 
         </fieldset>
 
 
         <fieldset title="Paso 3" class="step" id="default-step-2" >
             <legend>Confirmacion</legend>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Full Name</label>
-                <div class="col-lg-10">
-                    <p class="form-control-static">Tawseef Ahmed</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Email Address</label>
-                <div class="col-lg-10">
-                    <p class="form-control-static">tawseef@vectorlab.com</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">User Name</label>
-                <div class="col-lg-10">
-                    <p class="form-control-static">tawseef</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Phone</label>
-                <div class="col-lg-10">
-                    <p class="form-control-static">01234567</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Mobile</label>
-                <div class="col-lg-10">
-                    <p class="form-control-static">01234567</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Address</label>
-                <div class="col-lg-10">
-                    <p class="form-control-static">
-                        Dreamland Ave, Suite 73
-                        AU, PC 1361
-                        P: (123) 456-7891 </p>
 
-                        <%= f.label :humanizer_answer, @user.humanizer_question %>
-                        <%= f.text_field :humanizer_answer %>
-                        <%= f.hidden_field :humanizer_question_id %>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Comprobacion</label>
+                <div class="col-lg-8">
+                  <%= f.label :humanizer_answer, @user.humanizer_question %>
+                  <%= f.input :humanizer_answer, label: false %>
+                  <%= f.hidden_field :humanizer_question_id %>
 
                 </div>
             </div>
+
         </fieldset>
 
         <%= f.button :submit, "Registrarse",class: "finish btn btn-danger" %>
 
         <% end %>
+
+
             </div>
+
+<script>
+$(document).ready(function(){
+  $("#default-step-2").click(function(){
+  });
+});
+</script>
+
         </section>
     </div>
 </div>
