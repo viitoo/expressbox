@@ -11,11 +11,11 @@
  * file per style scope.
  *
  *= require_self
- *= require admin/bootstrap-reset
- *= require admin/bootstrap.min
- *= require admin/owl.carousel
- *= require admin/style-responsive
- *= require admin/datepicker
- *= require admin/style
+ *= require admin/bootstrap.min.css
+ *= require admin/bootstrap-reset.css
  *= require admin/font-awesome.css
-*/
+ *= require admin/datepicker.css
+ *= require admin/daterangepicker.css
+ *= require admin/style
+ *= require admin/style-responsive.css
+ */
