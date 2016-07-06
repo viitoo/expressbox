@@ -107,23 +107,14 @@
               <div class="form-group">
                 <label class="col-lg-2 control-label">fecha de nacimiento</label>
                 <div class="col-lg-8">
-                  <%= f.input :birth_date %>
-                  <%#= f.input :birth_date, required: true, autofocus: true,label: false,  as: :date, start_year: Date.today.year - 90,
+
+                  <%= f.input :birth_date, label: false,  as: :date, start_year: Date.today.year - 90,
+                             end_year: Date.today.year - 12,order: [:day,:month, :year]%>
+                  <%#= f.input :birth_date , required: true, autofocus: true,label: false,  as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year - 12, discard_day: false,
                               order: [:day,:month, :year],:wrapper_html => { :style => 'display: inline' } %>
                 </div>
               </div>
-
-              <div class="form-group">
-                  <label class="control-label col-sm-4">Default Datepicker</label>
-                  <div class="col-sm-6">
-                      <input id="dp1" type="text" value="12-02-2012" size="16" class="form-control">
-                  </div>
-              </div>
-
-
-
-
         </fieldset>
 
 
