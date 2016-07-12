@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'box/index'
+
   devise_for :admins
   get 'admin/index'
 
