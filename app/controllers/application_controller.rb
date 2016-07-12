@@ -26,14 +26,15 @@ end
     session[:previous_url] || admin_index_path
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path
+  end
+
   def configure_permitted_parameters
     added_attrs = [:username, :email,:name,:lastname,:dni, :password, :password_confirmation, :remember_me,:address,:phone_mobile,:phone_home,:phone_work,:birth_date,:account_number,:humanizer_answer,:humanizer_question_id]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
-  end
 
 end

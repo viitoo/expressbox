@@ -21,6 +21,8 @@
 
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),html: { class: 'form-horizontal',id: "default" }) do |f| %>
+  <%= devise_error_messages! %>
+
   <%= render 'devise/shared/messages' %>
         <fieldset title="Paso 1" class="step" id="default-step-0">
             <legend>Datos del usuario </legend>
