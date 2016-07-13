@@ -76,7 +76,12 @@
                   <%= f.input :dni, required: true, autofocus: true,label: false %>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Pais</label>
+                <div class="col-lg-8">
+                  <%= f.input :country, priority: [ "Peru" ], collection: [ "Chile", "Peru"],required: true, autofocus: true,label: false,placeholder: "Selecciona tu pais de origen" %>
+                </div>
+            </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Direccion</label>
