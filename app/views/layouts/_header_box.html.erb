@@ -77,7 +77,7 @@
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <%= image_tag "admin/avatar1_small.jpg"%>
 
-              <span class="username">Hola!, <%= current_user.name+' '+current_user.lastname%></span>
+              <span class="username">Hola!, <%=  current_user.name.capitalize if !current_user.name.to_s.empty?  %></span>
               <b class="caret"></b>
           </a>
           <ul class="dropdown-menu extended logout">

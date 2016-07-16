@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.html">
 
-    <title>Bienvenido <%= current_user.name.capitalize %> a tu ExpressBox</title>
+    <title>Bienvenido <%=  current_user.name if !current_user.name.to_s.empty?  %> a tu ExpressBox</title>
 
     <!-- Bootstrap core CSS -->
     <%= stylesheet_link_tag "admin/admin"%>
@@ -43,7 +43,7 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "admin/jquery.js","admin/bootstrap.min.js","admin/jquery.scrollTo.min.js","admin/jquery.nicescroll.js" %>
     <%= javascript_include_tag "admin/common-scripts.js"%>
-  
+
 
   </body>
 </html>

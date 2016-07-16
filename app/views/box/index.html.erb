@@ -6,7 +6,8 @@
                   <%= image_tag "admin/profile-avatar.jpg"%>
 
                 </a>
-                <h1><%= current_user.name.capitalize+' '+current_user.lastname.capitalize%></h1>
+                <h1><%=  current_user.name if !current_user.name.to_s.empty?  %>
+                    <%=  current_user.lastname  if !current_user.lastname.to_s.empty?%></h1>
                 <p><%=current_user.email%></p>
             </div>
 
