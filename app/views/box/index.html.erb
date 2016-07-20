@@ -42,6 +42,33 @@
             </footer>
         </section>
         <section class="panel">
+          <table class="table table-striped border-top" id="sample_2">
+          <thead>
+          <tr>
+              <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+              <th>Boxtrack</th>
+              <th class="hidden-phone">Courier Number</th>
+              <th class="hidden-phone">Descripcion</th>
+              <th class="hidden-phone">estado</th>
+              <th class="hidden-phone">Tipo de Envio</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="odd gradeX">
+              <td><input type="checkbox" class="checkboxes" value="1" /></td>
+              <td>Jhone doe</td>
+              <td class="hidden-phone"><a href="mailto:jhone-doe@gmail.com">jhone-doe@gmail.com</a></td>
+              <td class="hidden-phone">10</td>
+              <td class="center hidden-phone">02.03.2013</td>
+              <td class="hidden-phone"><span class="label label-success">Approved</span></td>
+          </tr>
+
+          </tbody>
+          </table>
+
+
+
+
             <div class="bio-graph-heading">
                 Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
             </div>
@@ -78,3 +105,15 @@
 
     </aside>
 </div>
+
+
+<% javascript_tag%>
+<script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
+<script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
+
+
+<!--common script for all pages-->
+<script src="js/common-scripts.js"></script>
+
+<!--script for this page only-->
+<script src="js/dynamic-table.js"></script>
