@@ -2388,6 +2388,17 @@ ul.inbox-pagination li {
 .profile-info .panel-footer ul li a {
     color: #7a7a7a;
 }
+.bio-graph-heading2 {
+    background: white;
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    padding: 40px 110px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    font-size: 16px;
+    font-weight: 300;white}
+
 
 .bio-graph-heading {
     background: #41cac0;
@@ -2400,6 +2411,9 @@ ul.inbox-pagination li {
     font-size: 16px;
     font-weight: 300;
 }
+
+
+
 
 .bio-graph-info {
     color: #89817e;

@@ -1,7 +1,7 @@
 <div class="row">
     <aside class="profile-nav col-lg-3">
         <section class="panel">
-            <div class="user-heading round">
+            <div class="user-heading round bg-warning">
                 <a href="#">
                   <%= image_tag "admin/profile-avatar.jpg"%>
 
@@ -42,6 +42,9 @@
             </footer>
         </section>
         <section class="panel">
+       <div class="panel-heading black-bg">
+         Listado de prealertas activos
+        </div>
           <table class="table table-striped border-top" id="sample_2">
           <thead>
           <tr>
@@ -69,51 +72,64 @@
 
 
 
-            <div class="bio-graph-heading">
-                Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
-            </div>
-            <div class="panel-body bio-graph-info">
-                <h1>Bio Graph</h1>
-                <div class="row">
-                    <div class="bio-row">
-                        <p><span>First Name </span>: Jonathan</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Last Name </span>: Smith</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Country </span>: Australia</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Birthday</span>: 13 July 1983</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Occupation </span>: UI Designer</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Email </span>: jsmith@flatlab.com</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Mobile </span>: (12) 03 4567890</p>
-                    </div>
-                    <div class="bio-row">
-                        <p><span>Phone </span>: 88 (02) 123456</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
+
+        <section class="panel">
+
+                          <div class="panel-body">
+          <a class="btn btn-shadow btn-success" data-toggle="modal" href="#myModal">
+
+              <i class="icon-plus-sign"></i> Prealerta tu paquete
+          </a>
+
+
+                              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                              <h4 class="modal-title">Form Tittle</h4>
+                                          </div>
+                                          <div class="modal-body">
+
+                                              <form role="form">
+                                                  <div class="form-group">
+                                                      <label for="exampleInputEmail1">Email address</label>
+                                                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="exampleInputPassword1">Password</label>
+                                                      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="exampleInputFile">File input</label>
+                                                      <input type="file" id="exampleInputFile3">
+                                                      <p class="help-block">Example block-level help text here.</p>
+                                                  </div>
+                                                  <div class="checkbox">
+                                                      <label>
+                                                          <input type="checkbox"> Check me out
+                                                      </label>
+                                                  </div>
+                                                  <button type="submit" class="btn btn-default">Submit</button>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+         
+                              
+                          </div>
+                      </section>
+
     </aside>
+
+
+
+
+
+
+
+
 </div>
-
-
-<% javascript_tag%>
-<script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
-<script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
-
-
-<!--common script for all pages-->
-<script src="js/common-scripts.js"></script>
-
-<!--script for this page only-->
-<script src="js/dynamic-table.js"></script>
