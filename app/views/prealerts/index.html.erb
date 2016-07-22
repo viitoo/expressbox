@@ -3,14 +3,14 @@
 
 <h1>Listing Prealerts</h1>
 
-<table>
+<table class="table table-striped table-advance table-hover">
   <thead>
     <tr>
-      <th>Tracking number</th>
-      <th>Curier</th>
-      <th>Shop</th>
-      <th>Value price</th>
-      <th>Description</th>
+      <th><i class="icon-bullhorn"></i>Numero box</th>
+      <th class="hidden-phone"><i class="icon-question-sign"></i>Courier(Tracking)</th>
+      <th><i class="icon-bookmark"></i> Tienda</th>
+      <th><i class=" icon-edit"></i> Precio</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,14 +18,21 @@
   <tbody>
     <% @prealerts.each do |prealert| %>
       <tr>
-        <td><%= prealert.tracking_number %></td>
-        <td><%= prealert.curier %></td>
+        <td><%= prealert.box_track%> </td>
+        <td class="hidden-phone"><%= prealert.curier+" (#{prealert.tracking_number})" %></td>
         <td><%= prealert.shop %></td>
         <td><%= prealert.value_price %></td>
-        <td><%= prealert.description %></td>
-        <td><%= link_to 'Show', prealert %></td>
-        <td><%= link_to 'Edit', edit_prealert_path(prealert) %></td>
-        <td><%= link_to 'Destroy', prealert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to prealert do %>
+            <button class="btn btn-success btn-xs"><i class="icon-ok"></i></button>
+        <%end%>
+        <%= link_to edit_prealert_path(prealert) do%>
+            <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button>
+        <%end %>
+        <%= link_to prealert ,method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+        <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -3,37 +3,39 @@
 <div class="panel-heading black-bg">
    Prealerta
 </div>
-
+<br>
    <div class="col-lg-12">
-      <div class="row">
+     <p>
+       <strong>Numero de Box:</strong>
+       <%= @prealert.box_track%>
+     </p>
         <p>
-          <strong>Tracking number:</strong>
+          <strong>Numero de Tracking:</strong>
           <%= @prealert.tracking_number %>
         </p>
 
         <p>
-          <strong>Curier:</strong>
-          <%= @prealert.curier %>
+          <strong>Courier:</strong>
+            <%= @prealert.curier.upcase %>
         </p>
 
         <p>
-          <strong>Shop:</strong>
+          <strong>Tienda donde fue comprado:</strong>
           <%= @prealert.shop %>
         </p>
 
         <p>
-          <strong>Value price:</strong>
-          <%= @prealert.value_price %>
+          <strong>Costo del paquete:</strong>
+          <%= @prealert.value_price %>$
         </p>
 
         <p>
-          <strong>Description:</strong>
+          <strong>Descripc  ion:</strong>
           <%= @prealert.description %>
         </p>
 
         <%= link_to 'Editar', edit_prealert_path(@prealert) %> |
         <%= link_to 'Volver', prealerts_path %>
-      </div>
     </div>
 
 </section>

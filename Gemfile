@@ -18,6 +18,12 @@ gem 'puma'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# PARA ENCONTRAR LOS PAQUETES QUE SE HAN ENVIADOS A TRAVES DE LOS COURIERS
+
+#gem 'fedex'
+
+# FIN DE GEMAS PARA COURIER
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # rails generate devise:install

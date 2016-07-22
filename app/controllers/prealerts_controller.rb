@@ -69,6 +69,6 @@ class PrealertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prealert_params
-      params.require(:prealert).permit(:tracking_number, :curier, :shop, :value_price, :description)
+      params.require(:prealert).permit(:tracking_number, :curier, :shop, :value_price, :description,:box_track)
     end
 end
