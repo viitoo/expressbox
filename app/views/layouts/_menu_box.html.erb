@@ -3,10 +3,11 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
             <li class="">
-                <a class="" href="index.html">
+              <%= link_to box_index_path do %>
                     <i class="icon-dashboard"></i>
                     <span>Dashboard</span>
-                </a>
+
+                <%end %>
             </li>
 
             <li class="sub-menu">
@@ -16,8 +17,9 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="grids.html">Grids</a></li>
-                    <li><a class="" href="calendar.html">Calendar</a></li>
+
+                    <li><%= link_to "Prealertas", prealerts_path  %></li>
+                    <li><%= link_to "Agregar Prealerta", new_prealert_path %></li>
                     <li><a class="" href="charts.html">Charts</a></li>
                 </ul>
             </li>

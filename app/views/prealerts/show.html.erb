@@ -1,0 +1,39 @@
+<section class="panel">
+
+<div class="panel-heading black-bg">
+   Prealerta
+</div>
+
+   <div class="col-lg-12">
+      <div class="row">
+        <p>
+          <strong>Tracking number:</strong>
+          <%= @prealert.tracking_number %>
+        </p>
+
+        <p>
+          <strong>Curier:</strong>
+          <%= @prealert.curier %>
+        </p>
+
+        <p>
+          <strong>Shop:</strong>
+          <%= @prealert.shop %>
+        </p>
+
+        <p>
+          <strong>Value price:</strong>
+          <%= @prealert.value_price %>
+        </p>
+
+        <p>
+          <strong>Description:</strong>
+          <%= @prealert.description %>
+        </p>
+
+        <%= link_to 'Editar', edit_prealert_path(@prealert) %> |
+        <%= link_to 'Volver', prealerts_path %>
+      </div>
+    </div>
+
+</section>

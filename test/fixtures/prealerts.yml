@@ -1,0 +1,16 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tracking_number: MyString
+  curier: MyString
+  shop: MyString
+  value_price: MyString
+  description: MyString
+
+two:
+  tracking_number: MyString
+  curier: MyString
+  shop: MyString
+  value_price: MyString
+  description: MyString

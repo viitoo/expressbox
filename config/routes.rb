@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :prealerts
   get 'box/index'
 
   devise_for :admins

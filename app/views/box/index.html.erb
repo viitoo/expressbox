@@ -78,18 +78,15 @@
         <section class="panel">
 
                           <div class="panel-body">
-          <a class="btn btn-shadow btn-success" data-toggle="modal" href="#myModal">
-
-              <i class="icon-plus-sign"></i> Prealerta tu paquete
-          </a>
-
-
-                              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                                  <div class="modal-dialog">
+                          <%= link_to  new_prealert_path ,class: "btn btn-shadow btn-success" do %>
+                              <i class="icon-plus-sign"></i> Prealerta tu paquete
+                          <% end -%>
+               <!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                                  <div class="modal-dialog col12 ">
                                       <div class="modal-content">
                                           <div class="modal-header">
                                               <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                              <h4 class="modal-title">Form Tittle</h4>
+                                              <h4 class="modal-title">Pre alerta tus pedidos</h4>
                                           </div>
                                           <div class="modal-body">
 
@@ -117,7 +114,7 @@
                                           </div>
                                       </div>
                                   </div>
-                              </div>
+                              </div>-->
          
                               
                           </div>

@@ -1,0 +1,37 @@
+<section class="panel">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prealerts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tracking number</th>
+      <th>Curier</th>
+      <th>Shop</th>
+      <th>Value price</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prealerts.each do |prealert| %>
+      <tr>
+        <td><%= prealert.tracking_number %></td>
+        <td><%= prealert.curier %></td>
+        <td><%= prealert.shop %></td>
+        <td><%= prealert.value_price %></td>
+        <td><%= prealert.description %></td>
+        <td><%= link_to 'Show', prealert %></td>
+        <td><%= link_to 'Edit', edit_prealert_path(prealert) %></td>
+        <td><%= link_to 'Destroy', prealert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prealert', new_prealert_path %>
+</section>
