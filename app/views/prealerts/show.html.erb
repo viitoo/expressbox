@@ -5,37 +5,35 @@
 </div>
 <br>
    <div class="col-lg-12">
-     <p>
-       <strong>Numero de Box:</strong>
-       <%= @prealert.box_track%>
-     </p>
         <p>
-          <strong>Numero de Tracking:</strong>
-          <%= @prealert.tracking_number %>
+          <strong>Numero de Box:</strong> <%= @prealert.box_track%>
+        </p>
+        <p>
+          <strong>Numero de Tracking:</strong> <%= @prealert.tracking_number %>
+        </p>
+        <p>
+          <strong>Courier:</strong> <%= @prealert.curier.upcase %>
+        </p>
+        <p>
+          <strong>Tienda donde fue comprado:</strong> <%= @prealert.shop %>
+        </p>
+        <p>
+          <strong>Costo del paquete:</strong> <%= @prealert.value_price %>$
+        </p>
+        <p>
+          <strong>Descripcion:</strong> <%= @prealert.description %>
         </p>
 
-        <p>
-          <strong>Courier:</strong>
-            <%= @prealert.curier.upcase %>
-        </p>
+        <%= link_to  edit_prealert_path(@prealert) ,class: "btn btn-shadow btn-info" do %>
+            <i class="icon-pencil"></i> Editar
+        <% end -%>
 
-        <p>
-          <strong>Tienda donde fue comprado:</strong>
-          <%= @prealert.shop %>
-        </p>
 
-        <p>
-          <strong>Costo del paquete:</strong>
-          <%= @prealert.value_price %>$
-        </p>
+        <%= link_to  prealerts_path, class: "btn btn-shadow btn-warning" do %>
+          <i class=" icon-arrow-left"></i> Volver
+        <% end %>
 
-        <p>
-          <strong>Descripc  ion:</strong>
-          <%= @prealert.description %>
-        </p>
-
-        <%= link_to 'Editar', edit_prealert_path(@prealert) %> |
-        <%= link_to 'Volver', prealerts_path %>
     </div>
+    <br />
 
 </section>

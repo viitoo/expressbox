@@ -36,8 +36,6 @@
         <%= f.input :description, label: "Describe tu paquete", class:"form-control"%>
       </div>
     </div>
-
-
 </div>
 
 </div>
@@ -46,13 +44,12 @@
 
     <div class="row">
       <div class="col-lg-4">
-        <%= f.button :submit, "#{f.object.new_record? ? 'Crear prealerta' : 'Actualizar prealerta'}", class:"btn btn-info" %>
+        <%= f.button :submit, "#{f.object.new_record? ? 'Crear prealerta' : 'Actualizar prealerta'}", class:"btn btn-shadow btn-info" %>
         <% if !f.object.new_record? %>
-          <%= link_to 'Mostrar', @prealert , class: "btn btn-warning"%>
+          <%= link_to "Mostrar", @prealert , class: "btn btn-shadow btn-warning"%>
         <%end%>
-        ó <%= link_to 'Volver', prealerts_path %>
+        ó <%= link_to "Volver", prealerts_path %>
       </div>
-
     </div>
  </div>
  </div>

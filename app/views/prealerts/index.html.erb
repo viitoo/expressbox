@@ -1,5 +1,6 @@
 <section class="panel">
 <p id="notice"><%= notice %></p>
+<div class="col-sm-12">
 
 <h1>Listing Prealerts</h1>
 
@@ -40,5 +41,10 @@
 
 <br>
 
-<%= link_to 'New Prealert', new_prealert_path %>
+<%= link_to  new_prealert_path ,class: "btn btn-shadow btn-success" do %>
+    <i class="icon-plus-sign"></i> Prealerta tu paquete
+<% end -%>
+</div>
+<br>
+
 </section>
