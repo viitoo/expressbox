@@ -7,7 +7,7 @@
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.html">
-
+    <%= csrf_meta_tag %>
     <title>Bienvenido <%=  current_user.name if !current_user.name.to_s.empty?  %> a tu ExpressBox</title>
 
     <!-- Bootstrap core CSS -->
@@ -41,6 +41,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag "admin/jquery.js","admin/bootstrap.min.js","admin/jquery.scrollTo.min.js","admin/jquery.nicescroll.js" %>
     <%= javascript_include_tag "admin/common-scripts.js"%>
     <%= javascript_include_tag "admin/jquery.dataTables.js" %>

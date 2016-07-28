@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722195737) do
+ActiveRecord::Schema.define(version: 20160728160516) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20160722195737) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "box_track",       limit: 255
+    t.string   "image",           limit: 255
+    t.string   "image2",          limit: 255
   end
 
   create_table "simple_captcha_data", force: :cascade do |t|

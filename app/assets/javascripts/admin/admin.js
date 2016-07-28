@@ -11,6 +11,9 @@
 //= require admin/form-component.js
 //= require admin/form-validation-script.js
 //= require admin/ga.js
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require admin/gritter.js
 //= require admin/jquery-1.8.3.min.js
 //= require admin/jquery-ui-1.9.2.custom.min.js
@@ -25,5 +28,3 @@
 //= require admin/owl.carousel.js
 //= require admin/sliders.js
 //= require admin/sparkline-chart.js
-//= require jquery
-//= require jquery_ujs
