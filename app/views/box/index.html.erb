@@ -13,7 +13,11 @@
 
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="profile-activity.html"> <i class="icon-calendar"></i> Actividad Reciente <span class="label label-danger pull-right r-activity">9</span></a></li>
-                <li><a href="profile-edit.html"> <i class="icon-edit"></i> Editar perfil</a></li>
+                <li>
+                  <li><%= link_to edit_user_registration_path do %>
+                        <i class="icon-edit"></i>Editar perfil</a>
+                      <% end %>
+                  </li>
             </ul>
 
         </section>
@@ -48,23 +52,35 @@
           <table class="table table-striped border-top" id="sample_2">
           <thead>
           <tr>
-              <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+              <th>
+
+              </th>
               <th>Boxtrack</th>
               <th class="hidden-phone">Courier Number</th>
-              <th class="hidden-phone">Descripcion</th>
-              <th class="hidden-phone">estado</th>
+              <th class="hidden-phone">Courier</th>
+              <th class="hidden-phone">Fecha Act.</th>
               <th class="hidden-phone">Tipo de Envio</th>
           </tr>
           </thead>
           <tbody>
-          <tr class="odd gradeX">
-              <td><input type="checkbox" class="checkboxes" value="1" /></td>
-              <td>Jhone doe</td>
-              <td class="hidden-phone"><a href="mailto:jhone-doe@gmail.com">jhone-doe@gmail.com</a></td>
-              <td class="hidden-phone">10</td>
-              <td class="center hidden-phone">02.03.2013</td>
-              <td class="hidden-phone"><span class="label label-success">Approved</span></td>
-          </tr>
+            <% if !@prealerts.blank? %>
+              <% for item in @prealerts %>
+              <tr class="odd gradeX">
+                 <td>
+
+                 </td>
+                  <td><%= item.box_track%></td>
+                  <td class="hidden-phone"><%= item.tracking_number%></td>
+                  <td class="hidden-phone"><%= item.curier%></td>
+                  <td class="center hidden-phone"><%= item.updated_at.strftime("%d/%m/%Y") %></td>
+                  <td class="hidden-phone"><span class="label label-success">Approved</span></td>
+              </tr>
+
+              <% end %>
+            <% else %>
+              No existen prealertas registrados
+            <% end %>
+
 
           </tbody>
           </table>
@@ -115,8 +131,8 @@
                                       </div>
                                   </div>
                               </div>-->
-         
-                              
+
+
                           </div>
                       </section>
 

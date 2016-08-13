@@ -33,6 +33,8 @@ gem 'mini_magick'
 group :development, :test do
   gem 'byebug'
   gem 'minitest-rails'
+  gem 'faker'
+
 
 end
 

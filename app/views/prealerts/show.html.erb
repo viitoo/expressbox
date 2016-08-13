@@ -23,7 +23,18 @@
         <p>
           <strong>Descripcion:</strong> <%= @prealert.description %>
         </p>
+        <p>
+          <div class="row">
+            <div class="col-lg-2">
+            <%= image_tag @prealert.image.url(:thumb),border: 1  if !@prealert.image.nil?%> <%# NOTE: tengo que arreglar esto %>
+            </div>
+            <div class="col-lg-2">
+            <%= image_tag @prealert.image2.url(:thumb) if !@prealert.image2.nil?%>
+            </div>
 
+          </div>
+
+        </p>
         <%= link_to  edit_prealert_path(@prealert) ,class: "btn btn-shadow btn-info" do %>
             <i class="icon-pencil"></i> Editar
         <% end -%>

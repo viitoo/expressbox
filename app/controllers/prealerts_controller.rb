@@ -1,8 +1,18 @@
 class PrealertsController < ApplicationController
   before_action :set_prealert, only: [:show, :edit, :update, :destroy]
+  before_action :prealert_owner, only: [:edit, :update, :destroy,:show]
   layout "box"
+
+    def prealert_owner
+     unless @prealert.user_id == current_user.id
+      flash[:notice] = 'Accedo denegado , tu no eres el creador de esta Prealerta'
+      redirect_to prealerts_path
+     end
+    end
+
+
   def index
-    @prealerts = Prealert.all
+    @prealerts = Prealert.where(:user_id => current_user.id).order(created_at: :desc)
   end
 
   def show
@@ -13,6 +23,7 @@ class PrealertsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -55,6 +66,6 @@ class PrealertsController < ApplicationController
     end
 
     def prealert_params
-      params.require(:prealert).permit(:tracking_number, :curier, :shop, :value_price, :description,:box_track,:image,:image2,:image_cache,:remove_image,:image2_cache, :remove_image2)
+      params.require(:prealert).permit(:tracking_number, :curier, :shop, :value_price, :description,:box_track,:image,:image2,:image_cache,:remove_image,:image2_cache, :remove_image2,:user_id)
     end
 end

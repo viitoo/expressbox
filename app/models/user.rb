@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   before_save :default_account
 
 
-
   def default_account
     self.account_number ||= SecureRandom.random_number(99999999999999)
 
