@@ -13,12 +13,12 @@ shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
   Prealert.create(
     tracking_number: Faker::Code.ean ,
     curier: courier[rand(1..15)] ,
-    shop: shop[rand(1..5)],
+    shop: shop[rand(1..1)],
     value_price: Faker::Commerce.price,
     description: Faker::Lorem.sentence(3),
     created_at: date,
     updated_at: date,
     box_track: Faker::Code.imei,
-    user_id: rand(1..5)
+    user_id: 1
     )
 end

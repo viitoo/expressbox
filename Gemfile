@@ -34,7 +34,7 @@ group :development, :test do
   gem 'byebug'
   gem 'minitest-rails'
   gem 'faker'
-
+  gem 'rubocop', require: false
 
 end
 
