@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   after_filter :store_location
   $courier = ["Aeropos","Airborne Express","Amazon Logistics","AP","China Post / International Mail","DHL / Airborne","FedEx","FedEx Freight","Lasership","Motor Freight - South Eastern","Other","Pitney Bowes","PriceSmart","SpeedBox","StratAir","Streamlite","UPS","UPS Mail Innovations","UPS Next Day","USPS","Walk-In","WN Direct","Otro"]
   $shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
+
   def store_location
     return unless request.get?
     if (request.path != "/users/sign_in" &&
@@ -14,7 +15,7 @@ class ApplicationController < ActionController::Base
         request.path != "/users/confirmation" &&
         request.path != "/users/sign_out" &&
         !request.xhr?)
-        session[:previous_url] = request.fullpath
+        store_location_for(:user, request.fullpath)
     end
   end
 
