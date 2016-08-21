@@ -1,4 +1,5 @@
 <div class="row">
+
     <aside class="profile-nav col-lg-3">
         <section class="panel">
             <div class="user-heading round bg-warning">
@@ -23,28 +24,22 @@
         </section>
     </aside>
     <aside class="profile-info col-lg-9">
+      <% if !notice.blank? %>
+      <div class="alert alert-info fade in">
+        <button data-dismiss="alert" class="close close-sm" type="button">
+          <i class="icon-remove"></i>
+        </button>
+        <%= notice %>
+      </div>
+      <%end%>
         <section class="panel">
-            <form>
-                <textarea placeholder="Whats in your mind today?" rows="2" class="form-control input-lg p-text-area"></textarea>
-            </form>
-            <footer class="panel-footer">
-                <button class="btn btn-danger pull-right">Post</button>
-                <ul class="nav nav-pills">
-                    <li>
-                        <a href="#"><i class="icon-map-marker"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-camera"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class=" icon-film"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-microphone"></i></a>
-                    </li>
-                </ul>
-            </footer>
+
+
+
         </section>
+
+
+
         <section class="panel">
        <div class="panel-heading black-bg">
          Listado de prealertas activos
@@ -78,7 +73,6 @@
 
               <% end %>
             <% else %>
-              No existen prealertas registrados
             <% end %>
 
 

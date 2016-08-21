@@ -7,6 +7,11 @@ class Prealert < ActiveRecord::Base
   belongs_to :user
   def box_number
     self.box_track||=SecureRandom.random_number(99999999999999)
+  end
 
+
+  def self.search(search,current_user)
+    where("(box_track LIKE ? or tracking_number LIKE ?) and user_id = ? ", "%#{search}%","%#{search}%",current_user)
+    #where("tracking_number LIKE ? and user_id = ?", "%#{search}%",current_user)
   end
 end

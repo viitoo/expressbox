@@ -1,12 +1,41 @@
+<% if !notice.blank? %>
+<div class="alert alert-info fade in">
+  <button data-dismiss="alert" class="close close-sm" type="button">
+    <i class="icon-remove"></i>
+  </button>
+  <%= notice %>
+</div>
+<%end%>
+
 <section class="panel">
-<p id="notice"><%= notice %></p>
+
+
+
+  <%= form_tag(prealerts_path, :method => "get") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Para buscar un Prealerta introduce el track box o tracking number" ,:class=>"form-control input-lg p-text-area"%>
+
+  <footer class="panel-footer">
+    <%= submit_tag "Buscar prealerta", :class=>"btn btn-danger pull-right" %>
+      <ul class="nav nav-pills">
+          <li>
+              <a href="#"><i class="icon-search"></i> Buscador de Prealerta</a>
+          </li>
+
+      </ul>
+  </footer>
+  <% end %>
+
+</section>
+
+
+<section class="panel">
+
 <div class="col-sm-12">
   <header class="panel-heading">
     Listado de Prealertas
   </header>
 
-
-  <table class="table table-striped border-top" id="sample_2">
+  <table class="table table-striped border-top" id="sample_3">
   <thead>
     <tr>
       <th><i class="icon-bullhorn"></i> Numero box</th>
@@ -43,6 +72,11 @@
     <% end %>
   </tbody>
 </table>
+    <div class="page_info">
+      <%= page_entries_info @prealerts %>
+    </div>
+    <%= will_paginate @prealerts, :class=> "pagination pagination-lg",:previous_label => "&#8676; Anterior", :next_label => "Siguiente   &#8677;" %>
+
 
 <br>
 

@@ -12,7 +12,16 @@ class PrealertsController < ApplicationController
 
 
   def index
-    @prealerts = Prealert.where(:user_id => current_user.id).order(created_at: :desc)
+    @prealerts = Prealert.where(:user_id => current_user.id).paginate(:page => params[:page], :per_page => 15).order(created_at: :desc)
+
+    if params[:search]
+      @prealerts = Prealert.search(params[:search],current_user.id).paginate(:page => params[:page], :per_page => 15).order(created_at: :desc)
+
+    else
+      @prealerts = Prealert.where(:user_id => current_user.id).paginate(:page => params[:page], :per_page =>15).order(created_at: :desc)
+
+    end
+
   end
 
   def show

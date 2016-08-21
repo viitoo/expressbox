@@ -16,6 +16,7 @@ gem 'humanizer'
 gem 'puma'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'will_paginate', '~> 3.1.0'
 #gem "paperclip", "~> 5.0.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
