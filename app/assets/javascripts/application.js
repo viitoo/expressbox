@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require animations
 //= require bootstrap.min
 //= require custom
@@ -23,6 +26,3 @@
 //= require owl.carousel
 //= require retina
 //= require waypoints.min
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
