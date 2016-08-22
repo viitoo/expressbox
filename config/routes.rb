@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ships
   resources :prealerts
   get 'box/index'
 

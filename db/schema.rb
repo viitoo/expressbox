@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820202057) do
+ActiveRecord::Schema.define(version: 20160822125445) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20160820202057) do
   end
 
   add_index "prealerts", ["user_id"], name: "index_prealerts_on_user_id", using: :btree
+
+  create_table "ships", force: :cascade do |t|
+    t.string   "address",    limit: 255
+    t.string   "city",       limit: 255
+    t.string   "state",      limit: 255
+    t.string   "zip",        limit: 255
+    t.string   "country",    limit: 255
+    t.string   "phone",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false

@@ -34,6 +34,53 @@
       <%end%>
         <section class="panel">
 
+                                    <header class="panel-heading">
+                                        Pasos para prealertar tus compras
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="timeline-messages">
+                                            <!-- Comment -->
+                                            <div class="msg-time-chat">
+                                                <a href="#" class="message-img"><h2>1</h2></a>
+                                                <div class="message-body msg-in">
+                                                    <span class="arrow"></span>
+                                                    <div class="text">
+                                                        <p class="panel-heading">Al realizar una compra en tu sitio de preferencia, usa los siguientes datos:</p>
+                                                        <p>Nombre del comprador: <strong><%= current_user.country.upcase[0..1]+""+current_user.account_number %></strong></p>
+                                                        <p>Direccion: <strong><%= @ship.address %></strong>
+                                                        <p>Ciudad: <strong><%= @ship.city%> </strong></p>
+                                                        <p>Estado: <strong><%=@ship.state%></strong></p>
+
+                                                        <p>Codigo Zip: <strong> <%= @ship.zip%> </strong> </p>
+                                                        <p>Pais: <strong><%=@ship.country%></strong></p>
+                                                        <p>Telefono: <strong><%= @ship.phone %></strong></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /comment -->
+
+                                            <!-- Comment -->
+                                            <div class="msg-time-chat">
+                                                <a href="#" class="message-img"><h2>2</h2></a>
+                                                <div class="message-body msg-out">
+                                                    <span class="arrow"></span>
+                                                    <div class="text">
+                                                        <p class="panel-heading"> Registra tu prealerta</p>
+                                                        <p>Llegaste a este punto , todo es muy sencillo, solo debes agregar una nueva prealerta y llenar el formulario.</p>
+                                                        <p>Puedes agregar un nuevo prealerta haciendo click sobre el boton prealertar  tu paquete situado debajo de este texto
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- /comment -->
+
+                                    </div>
+                                    <hr>
+                                    <%= link_to  new_prealert_path ,class: "btn btn-shadow btn-success" do %>
+                                        <i class="icon-plus-sign"></i> Prealerta tu paquete
+                                    <% end -%>
 
 
         </section>
@@ -91,42 +138,6 @@
                           <%= link_to  new_prealert_path ,class: "btn btn-shadow btn-success" do %>
                               <i class="icon-plus-sign"></i> Prealerta tu paquete
                           <% end -%>
-               <!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                                  <div class="modal-dialog col12 ">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                              <h4 class="modal-title">Pre alerta tus pedidos</h4>
-                                          </div>
-                                          <div class="modal-body">
-
-                                              <form role="form">
-                                                  <div class="form-group">
-                                                      <label for="exampleInputEmail1">Email address</label>
-                                                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputPassword1">Password</label>
-                                                      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-                                                  </div>
-                                                  <div class="form-group">
-                                                      <label for="exampleInputFile">File input</label>
-                                                      <input type="file" id="exampleInputFile3">
-                                                      <p class="help-block">Example block-level help text here.</p>
-                                                  </div>
-                                                  <div class="checkbox">
-                                                      <label>
-                                                          <input type="checkbox"> Check me out
-                                                      </label>
-                                                  </div>
-                                                  <button type="submit" class="btn btn-default">Submit</button>
-                                              </form>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>-->
-
-
                           </div>
                       </section>
 
