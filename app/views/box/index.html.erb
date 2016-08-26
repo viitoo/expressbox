@@ -1,6 +1,6 @@
 <div class="row">
 
-    <aside class="profile-nav col-lg-3">
+    <aside class="profile-nav col-lg-4">
         <section class="panel">
             <div class="user-heading round bg-warning">
                 <a href="#">
@@ -13,7 +13,6 @@
             </div>
 
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="profile-activity.html"> <i class="icon-calendar"></i> Actividad Reciente <span class="label label-danger pull-right r-activity">9</span></a></li>
                 <li>
                   <li><%= link_to edit_user_registration_path do %>
                         <i class="icon-edit"></i>Editar perfil</a>
@@ -22,8 +21,10 @@
             </ul>
 
         </section>
+
+
     </aside>
-    <aside class="profile-info col-lg-9">
+    <aside class="profile-info col-lg-8">
       <% if !notice.blank? %>
       <div class="alert alert-info fade in">
         <button data-dismiss="alert" class="close close-sm" type="button">
@@ -32,60 +33,59 @@
         <%= notice %>
       </div>
       <%end%>
-        <section class="panel">
 
-                                    <header class="panel-heading">
-                                        Pasos para prealertar tus compras
-                                    </header>
-                                    <div class="panel-body">
-                                        <div class="timeline-messages">
-                                            <!-- Comment -->
-                                            <div class="msg-time-chat">
-                                                <a href="#" class="message-img"><h2>1</h2></a>
-                                                <div class="message-body msg-in">
-                                                    <span class="arrow"></span>
-                                                    <div class="text">
-                                                        <p class="panel-heading">Al realizar una compra en tu sitio de preferencia, usa los siguientes datos:</p>
-                                                        <p>Nombre del comprador: <strong><%= current_user.country.upcase[0..1]+""+current_user.account_number %></strong></p>
-                                                        <p>Direccion: <strong><%= @ship.address %></strong>
-                                                        <p>Ciudad: <strong><%= @ship.city%> </strong></p>
-                                                        <p>Estado: <strong><%=@ship.state%></strong></p>
+    <section>
+            <div class="row">
+                <div class="col-lg-8">
+                  <div class="panel">
+                  <div class="follower">
+                     <div class="panel-body">
+                         <h4 >Al realizar una compra usa los siguientes datos</h4>
+                     </div>
+                     </div>
+                     <footer class="follower-foot">
+                       <li>Nombre del comprador: <strong><%= current_user.name if !current_user.name.to_s.empty? %> <%= current_user.lastname if !current_user.lastname.to_s.empty?%> <%= current_user.country.upcase[0..1]+""+current_user.account_number %></strong></li>
+                       <li>Direccion: <strong><%= @ship.address %></strong></li>
+                       <li>Ciudad: <strong><%= @ship.city%> </strong></li>
+                       <li>Estado: <strong><%=@ship.state%></strong></li>
+                       <li>Codigo Zip: <strong> <%= @ship.zip%> </strong></li>
+                       <li>Pais: <strong><%=@ship.country%></strong></li>
+                       <li>Telefono: <strong><%= @ship.phone %></strong></li>
 
-                                                        <p>Codigo Zip: <strong> <%= @ship.zip%> </strong> </p>
-                                                        <p>Pais: <strong><%=@ship.country%></strong></p>
-                                                        <p>Telefono: <strong><%= @ship.phone %></strong></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /comment -->
+                     </footer>
+                  </div>
+                </div>
+                  <div class="col-lg-4">
+                        <div class="panel">
+                              <div class="follower">
+                                 <div class="panel-body">
+                                   <h4>Registra tu prealerta</h4>
+                                 </div>
+                              </div>
+                              <footer class="follower-foot">
 
-                                            <!-- Comment -->
-                                            <div class="msg-time-chat">
-                                                <a href="#" class="message-img"><h2>2</h2></a>
-                                                <div class="message-body msg-out">
-                                                    <span class="arrow"></span>
-                                                    <div class="text">
-                                                        <p class="panel-heading"> Registra tu prealerta</p>
-                                                        <p>Llegaste a este punto , todo es muy sencillo, solo debes agregar una nueva prealerta y llenar el formulario.</p>
-                                                        <p>Puedes agregar un nuevo prealerta haciendo click sobre el boton prealertar  tu paquete situado debajo de este texto
-                                                        </p>
+                              <p>
 
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <!-- /comment -->
-
-                                    </div>
-                                    <hr>
-                                    <%= link_to  new_prealert_path ,class: "btn btn-shadow btn-success" do %>
-                                        <i class="icon-plus-sign"></i> Prealerta tu paquete
-                                    <% end -%>
+                                Haz click sobre el boton prealertar tu paquete en el boton que aparece debajo y rellena el formulario.
+                              <br>  <center> <%= image_tag "/uploads/21088.png" %></center>
+</p>
+                              </footer>
+                            </div>
+                        </div>
 
 
-        </section>
 
+              </div>
+    </section>
 
+    <section class="panel">
+
+                      <div class="panel-body">
+                      <%= link_to  new_prealert_path ,class: "btn btn-lg btn-shadow btn-success btn-block" do %>
+                          <i class="icon-plus-sign"></i> Prealerta tu paquete
+                      <% end -%>
+                      </div>
+                  </section>
 
         <section class="panel">
        <div class="panel-heading black-bg">
@@ -100,8 +100,8 @@
               <th>Boxtrack</th>
               <th class="hidden-phone">Courier Number</th>
               <th class="hidden-phone">Courier</th>
-              <th class="hidden-phone">Fecha Act.</th>
-              <th class="hidden-phone">Tipo de Envio</th>
+              <th class="hidden-phone">Actualizacion</th>
+              <th class="hidden-phone">Estado</th>
           </tr>
           </thead>
           <tbody>
@@ -134,12 +134,7 @@
 
         <section class="panel">
 
-                          <div class="panel-body">
-                          <%= link_to  new_prealert_path ,class: "btn btn-shadow btn-success" do %>
-                              <i class="icon-plus-sign"></i> Prealerta tu paquete
-                          <% end -%>
-                          </div>
-                      </section>
+        </section>
 
     </aside>
 

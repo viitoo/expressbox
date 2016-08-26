@@ -5,8 +5,9 @@ class Prealert < ActiveRecord::Base
   mount_uploader :image2 ,ImageUploader
   before_save :box_number
   belongs_to :user
+
   def box_number
-    self.box_track||=SecureRandom.random_number(99999999999999)
+    self.box_track||=SecureRandom.random_number(99999999)
   end
 
 
