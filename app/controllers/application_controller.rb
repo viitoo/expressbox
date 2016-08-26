@@ -1,10 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+
   protected
   after_filter :store_location
   $courier = ["Aeropos","Airborne Express","Amazon Logistics","AP","China Post / International Mail","DHL / Airborne","FedEx","FedEx Freight","Lasership","Motor Freight - South Eastern","Other","Pitney Bowes","PriceSmart","SpeedBox","StratAir","Streamlite","UPS","UPS Mail Innovations","UPS Next Day","USPS","Walk-In","WN Direct","Otro"]
   $shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
+
+
+
+
+
 
   def store_location
     return unless request.get?
@@ -13,6 +19,7 @@ class ApplicationController < ActionController::Base
         request.path != "/users/password/new" &&
         request.path != "/users/password/edit" &&
         request.path != "/users/confirmation" &&
+        request.path != "/users/edit" &&
         request.path != "/users/sign_out" &&
         !request.xhr?)
         store_location_for(:user, request.fullpath)

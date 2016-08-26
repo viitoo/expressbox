@@ -1,27 +1,159 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="img/favicon.html">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <title>Bienvenido <%=  current_user.name if !current_user.name.to_s.empty?  %> a tu ExpressBox</title>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag "admin/admin"%>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+  <body>
 
-<h3>Cancel my account</h3>
+  <section id="container" class="">
+      <!--header start-->
+      <% if user_signed_in? %>
+            <%= render "/layouts/header_box"%>
+            <!--header end-->
+            <!--sidebar start-->
+            <%= render "/layouts/menu_box"%>
+            <!--sidebar end-->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+                  <section>
+                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= devise_error_messages! %>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                          <div class="row">
+                              <div class="col-lg-6">
+                                <div class="panel">
+                                <div class="flat-carousal">
+                                   <div class="panel-body">
+                                       <h4>Datos de la cuenta</h4>
+                                   </div>
+                                   </div>
+                                   <footer class="follower-foot">
 
-<%= link_to "Back", :back %>
+                                     <div class="form-inputs">
+                                       <div class="form-group">
+                                          <%= f.input :email, required: true, autofocus: true %>
+                                       </div>
+                                       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                                       <% end %>
+                                       <div class="form-group">
+                                          <%= f.input :password, autocomplete: "off", hint: "Dejalo en blanco si no deseas cambiarlo", required: false %>
+                                       </div>
+                                       <div class="form-group">
+                                          <%= f.input :password_confirmation, required: false %>
+                                       </div>
+                                       <div class="form-group">
+                                          <%= f.input :current_password, hint: "Necesitas introducir tu password para validar el cambio", required: true %>
+                                       </div>
+
+                                   </footer>
+                                </div>
+                              </div>
+                                <div class="col-lg-6">
+                                      <div class="panel">
+                                        <div class="flat-carousal">
+                                               <div class="panel-body">
+                                                 <h4>Datos personales</h4>
+                                               </div>
+                                            </div>
+                                            <footer class="follower-foot">
+                                              <div class="form-group">
+                                                    <%= f.input :name, required: true, autofocus: true,label: "Nombre" %>
+                                              </div>
+                                              <div class="form-group">
+                                                    <%= f.input :lastname, required: true, autofocus: true,label: "apellido" %>
+                                              </div>
+                                              <div class="form-group">
+                                                    <%= f.input :dni, required: true, autofocus: true,label: "DNI" %>
+                                              </div>
+                                              <div class="form-group">
+                                                    <%= f.input :country, priority: [ "Peru" ], collection: [ "Chile", "Peru"],required: true, autofocus: true,label: "Pais",placeholder: "Selecciona tu pais de origen" %>
+                                              </div>
+
+
+                                              <div class="form-group">
+                                                    <%= f.input :address, required: true, autofocus: true,label: "direccion" %>
+                                              </div>
+
+                                              <div class="form-group">
+                                                    <%= f.input :phone_mobile, required: true, autofocus: true,label:"Telefono movil"  %>
+                                              </div>
+
+                                              <div class="form-group">
+                                                    <%= f.input :phone_home, required: true, autofocus: true,label: "Telefono de casa"%>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <%= f.input :phone_work, required: true, autofocus: true,label:"telefono de trabajo" %>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <%= f.input :birth_date, label: false,  as: :date, start_year: Date.today.year - 90,
+                                                               end_year: Date.today.year - 12,order: [:day,:month, :year], label:"Fecha nac."%>
+                                                    <%#= f.input :birth_date , required: true, autofocus: true,label: false,  as: :date, start_year: Date.today.year - 90,
+                                                                end_year: Date.today.year - 12, discard_day: false,
+                                                                order: [:day,:month, :year],:wrapper_html => { :style => 'display: inline' } %>
+                                                </div>
+
+                                              <div class="form-actions">
+                                                <%= f.button :submit, "Actualizar" %>
+                                              </div>
+                                              <% end %>
+                                            </footer>
+                                          </div>
+                                      </div>
+
+
+
+                            </div>
+                            <h3>Cancelar mi cuenta</h3>
+
+                            <p>Descontento? <%#= link_to "Deseo cancelar mi cuenta!", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete %></p>
+
+                  </section>
+                  </div>
+
+                </section>
+            </section>
+            <!--main content end-->
+      <% else %>
+            <%= link_to('Login', new_user_session_path)  %>
+  <% end %>
+
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "/admin/jquery.js","/admin/bootstrap.min.js","/admin/jquery.scrollTo.min.js","/admin/jquery.nicescroll.js" %>
+    <%= javascript_include_tag "/admin/common-scripts.js"%>
+    <%= javascript_include_tag "/admin/jquery.dataTables.js" %>
+    <%= javascript_include_tag "/admin/DT_bootstrap.js" %>
+    <%= javascript_include_tag "/admin/dynamic-table.js"%>
+    <%= javascript_include_tag "/admin/gritter.js"%>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+  </body>
+</html>

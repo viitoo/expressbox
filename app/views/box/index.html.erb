@@ -44,7 +44,7 @@
                      </div>
                      </div>
                      <footer class="follower-foot">
-                       <li>Nombre del comprador: <strong><%= current_user.name if !current_user.name.to_s.empty? %> <%= current_user.lastname if !current_user.lastname.to_s.empty?%> <%= current_user.country.upcase[0..1]+""+current_user.account_number %></strong></li>
+                       <li>Nombre del comprador: <strong><%= current_user.name if !current_user.name.to_s.empty? %> <%= current_user.lastname if !current_user.lastname.to_s.empty?%> TIB<%=current_user.account_number %></strong></li>
                        <li>Direccion: <strong><%= @ship.address %></strong></li>
                        <li>Ciudad: <strong><%= @ship.city%> </strong></li>
                        <li>Estado: <strong><%=@ship.state%></strong></li>
