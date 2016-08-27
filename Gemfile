@@ -18,7 +18,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate', '~> 3.1.0'
 gem 'country_select'
-
+gem 'public_activity'
+gem 'metamagic'
+gem 'friendly_id', '~> 5.1.0'
 #gem "paperclip", "~> 5.0.0"
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -38,8 +40,13 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'faker'
   gem 'rubocop', require: false
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
 
 end
+
+
 
 group :development do
   gem 'hirb'
