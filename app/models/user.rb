@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
 
 
   def default_account
-    self.account_number||=SecureRandom.random_number(999999999)
+    self.account_number||="TIB"+SecureRandom.random_number(9999999).to_s
   end
 end
