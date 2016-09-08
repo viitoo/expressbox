@@ -8,10 +8,6 @@ class ApplicationController < ActionController::Base
   $shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
 
 
-
-
-
-
   def store_location
     return unless request.get?
     if (request.path != "/users/sign_in" &&

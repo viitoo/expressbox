@@ -1,5 +1,4 @@
 <div class="row">
-
     <aside class="profile-nav col-lg-4">
         <section class="panel">
             <div class="user-heading round bg-warning">
@@ -19,11 +18,25 @@
                       <% end %>
                   </li>
             </ul>
-
         </section>
-
-
+          <div class="panel">
+          <div class="follower">
+             <div class="panel-body">
+                 <h4 >Al realizar una compra usa los siguientes datos(shipping)</h4>
+             </div>
+             </div>
+             <footer class="follower-foot">
+               - Nombre del comprador: <strong><%= current_user.name if !current_user.name.to_s.empty? %> <%= current_user.lastname if !current_user.lastname.to_s.empty?%> <%=current_user.account_number %></strong><br />
+               - Direccion: <strong><%= @ship.address %></strong><br />
+               - Ciudad: <strong><%= @ship.city%> </strong><br />
+               - Estado: <strong><%=@ship.state%></strong><br />
+               - Codigo Zip: <strong> <%= @ship.zip%> </strong><br />
+               - Pais: <strong><%=@ship.country%></strong><br />
+               - Telefono: <strong><%= @ship.phone %></strong><br />
+             </footer>
+          </div>
     </aside>
+
     <aside class="profile-info col-lg-8">
       <% if !notice.blank? %>
       <div class="alert alert-info fade in">
@@ -34,72 +47,25 @@
       </div>
       <%end%>
 
-    <section>
-            <div class="row">
-                <div class="col-lg-8">
-                  <div class="panel">
-                  <div class="follower">
-                     <div class="panel-body">
-                         <h4 >Al realizar una compra usa los siguientes datos(shipping)</h4>
-                     </div>
-                     </div>
-                     <footer class="follower-foot">
-                       <li>Nombre del comprador: <strong><%= current_user.name if !current_user.name.to_s.empty? %> <%= current_user.lastname if !current_user.lastname.to_s.empty?%> <%=current_user.account_number %></strong></li>
-                       <li>Direccion: <strong><%= @ship.address %></strong></li>
-                       <li>Ciudad: <strong><%= @ship.city%> </strong></li>
-                       <li>Estado: <strong><%=@ship.state%></strong></li>
-                       <li>Codigo Zip: <strong> <%= @ship.zip%> </strong></li>
-                       <li>Pais: <strong><%=@ship.country%></strong></li>
-                       <li>Telefono: <strong><%= @ship.phone %></strong></li>
-
-                     </footer>
-                  </div>
-                </div>
-                  <div class="col-lg-4">
-                        <div class="panel">
-                              <div class="follower">
-                                 <div class="panel-body">
-                                   <h4>Registra tu prealerta</h4>
-                                 </div>
-                              </div>
-                              <footer class="follower-foot">
-
-                              <p>
-
-                                Haz click sobre el boton prealertar tu paquete en el boton que aparece debajo y rellena el formulario.
-                              <br>  <center> <%= image_tag "/uploads/21088.png" %></center>
-</p>
-                              </footer>
-                            </div>
-                        </div>
-
-
-
-              </div>
+    <section class="panel">
+      <div class="panel-body">
+      <%= link_to  new_prealert_path ,class: "btn btn-lg btn-shadow btn-success btn-block" do %>
+          <i class="icon-plus-sign"></i> Prealerta tu paquete
+      <% end -%>
+      </div>
     </section>
 
     <section class="panel">
-
-                      <div class="panel-body">
-                      <%= link_to  new_prealert_path ,class: "btn btn-lg btn-shadow btn-success btn-block" do %>
-                          <i class="icon-plus-sign"></i> Prealerta tu paquete
-                      <% end -%>
-                      </div>
-                  </section>
-
-        <section class="panel">
        <div class="panel-heading black-bg">
          Listado de prealertas activos
         </div>
-          <table class="table table-striped border-top" id="sample_2">
+        <div class="panel-body">
+          <table class="table table-striped border-top border-bottom border-right border-left" id="sample_2">
           <thead>
           <tr>
-              <th>
-
-              </th>
               <th>Boxtrack</th>
               <th class="hidden-phone">Courier Number</th>
-              <th class="hidden-phone">Courier</th>
+              <th class="hidden-phone">Descripcion</th>
               <th class="hidden-phone">Actualizacion</th>
               <th class="hidden-phone">Estado</th>
           </tr>
@@ -108,14 +74,23 @@
             <% if !@prealerts.blank? %>
               <% for item in @prealerts %>
               <tr class="odd gradeX">
-                 <td>
-
-                 </td>
-                  <td><%= item.box_track%></td>
-                  <td class="hidden-phone"><%= item.tracking_number%></td>
-                  <td class="hidden-phone"><%= item.curier%></td>
-                  <td class="center hidden-phone"><%= item.updated_at.strftime("%d/%m/%Y") %></td>
-                  <td class="hidden-phone"><span class="label label-success">Approved</span></td>
+                  <td>
+                      <%= link_to prealert_path(item.id) do%>
+                        <%= item.box_track%>
+                      <% end%>
+                  </td>
+                  <td class="hidden-phone">
+                    <%= link_to "http://www.17track.net/es/track?nums=#{item.tracking_number}" , :target => "_blank" do %>
+                      <%= item.tracking_number %>
+                    <% end %>
+                  </td>
+                  <td class="hidden-phone"><%= item.description%></td>
+                  <td class="center hidden-phone"><%= "#{" estado"}"%></td>
+                  <td class="hidden-phone">
+                  <%= link_to prealert_path(item.id) do %>
+                    <button class="btn btn-success btn-xs"><i class="icon-ok"></i></button>
+                  <%end%>
+                  </td>
               </tr>
 
               <% end %>
@@ -126,7 +101,7 @@
           </tbody>
           </table>
 
-
+</div>
 
 
         </section>
