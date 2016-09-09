@@ -3,10 +3,13 @@ class User < ActiveRecord::Base
   include Humanizer
   require_human_on :create
   validates :name, :lastname, :address, :dni, :phone_mobile, :phone_home, presence: true
-  before_save :default_account
-
+  before_create :default_account
 
   def default_account
-    self.account_number||="TIB"+SecureRandom.random_number(9999999).to_s
+    begin
+      numero = SecureRandom.random_number(9999999)
+    end until !User.where(:account_number=>numero).exists?
+    self.account_number||="TIB"+numero.to_s
   end
+
 end

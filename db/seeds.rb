@@ -8,7 +8,7 @@
 courier = ["Aeropos","Airborne Express","Amazon Logistics","AP","China Post / International Mail","DHL / Airborne","FedEx","FedEx Freight","Lasership","Motor Freight - South Eastern","Other","Pitney Bowes","PriceSmart","SpeedBox","StratAir","Streamlite","UPS","UPS Mail Innovations","UPS Next Day","USPS","Walk-In","WN Direct","Otro"]
 shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
 
-10.times do
+5.times do
   date = Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
   Prealert.create(
     tracking_number: Faker::Code.ean ,

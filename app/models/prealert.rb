@@ -3,16 +3,23 @@ class Prealert < ActiveRecord::Base
   #validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   mount_uploader :image ,ImageUploader
   mount_uploader :image2 ,ImageUploader
-  before_save :box_number
+  before_create :box_number
   belongs_to :user
 
   def box_number
-    self.box_track||=SecureRandom.random_number(99999999)
+    begin
+      numero = SecureRandom.random_number(9999999)
+    end until !User.where(:account_number=>numero).exists?
+    self.box_track||=numero.to_s
   end
-
 
   def self.search(search,current_user)
     where("(box_track LIKE ? or tracking_number LIKE ?) and user_id = ? ", "%#{search}%","%#{search}%",current_user)
-    #where("tracking_number LIKE ? and user_id = ?", "%#{search}%",current_user)
   end
+
+  
+  def name
+    file.path.split("/").last
+  end
+
 end
