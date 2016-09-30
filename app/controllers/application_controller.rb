@@ -1,12 +1,26 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+  layout :layout_by_resource
 
   protected
   after_filter :store_location
   $courier = ["Aeropos","Airborne Express","Amazon Logistics","AP","China Post / International Mail","DHL / Airborne","FedEx","FedEx Freight","Lasership","Motor Freight - South Eastern","Other","Pitney Bowes","PriceSmart","SpeedBox","StratAir","Streamlite","UPS","UPS Mail Innovations","UPS Next Day","USPS","Walk-In","WN Direct","Otro"]
   $shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
 
+
+  def layout_by_resource
+   if devise_controller? && resource_name == :admin
+      "admins"
+    else
+      if devise_controller? && resource_name == :user
+       "devise"
+      else
+        "application"
+      end
+
+    end
+  end
 
   def store_location
     return unless request.get?
@@ -39,6 +53,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
 
 
 end

@@ -13,7 +13,7 @@
 
   <!-- Mobile Specific Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Bienvenido a tu ExpressBox</title>
+  <title>ADMINISTRACION</title>
 
 
   <%= stylesheet_link_tag  'admin/admin.css' %>
@@ -32,23 +32,7 @@
   <!-- HEADER
   ============================================= -->
 
-<section id="container" class="">
-    <!--header start-->
-    <% if user_signed_in? %>
-          <%= render "layouts/header_box"%>
-          <!--header end-->
-          <!--sidebar start-->
-          <%= render "layouts/menu_box"%>
-          <!--sidebar end-->
-          <!--main content start-->
-          <%= render "layouts/main_content_box"%>
-          <!--main content end-->
-    <% else %>
-          <%= yield %>
-          <%#= link_to('Login', new_user_session_path)  %>
-<% end %>
-
-</section>
+<%= yield %>
 
 </body>
 

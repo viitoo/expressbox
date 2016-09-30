@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
-  resources :ships
-  resources :prealerts
-  get 'box/index'
 
-  devise_for :admins
+  root 'home#index'
+
   get 'admin/index'
-
-  devise_for :users
+  get 'box/index'
   get 'home/index'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  devise_for :users
+  devise_for :admins
 
-  # You can have the root of your site routed with "root"
-  root 'home#index'
+  resources :ships
+  resources :prealerts
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

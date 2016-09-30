@@ -19,6 +19,6 @@ shop = ["AMAZON","EBAY","AEROPOSTALE","AMERICAN EAGLE","OTRA"]
     created_at: date,
     updated_at: date,
     box_track: Faker::Code.imei,
-    user_id: 3
+    user_id: 1
     )
 end
