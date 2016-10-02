@@ -23,17 +23,34 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    return unless request.get?
-    if (request.path != "/users/sign_in" &&
-        request.path != "/users/sign_up" &&
-        request.path != "/users/password/new" &&
-        request.path != "/users/password/edit" &&
-        request.path != "/users/confirmation" &&
-        request.path != "/users/edit" &&
-        request.path != "/users/sign_out" &&
-        !request.xhr?)
-        store_location_for(:user, request.fullpath)
-    end
+    if devise_controller? && resource_name == :admin
+        return unless request.get?
+        if (request.path != "/users/sign_in" &&
+            request.path != "/users/sign_up" &&
+            request.path != "/users/password/new" &&
+            request.path != "/users/password/edit" &&
+            request.path != "/users/confirmation" &&
+            request.path != "/users/edit" &&
+            request.path != "/users/sign_out" &&
+            !request.xhr?)
+            store_location_for(:user, request.fullpath)
+        end
+    else
+      if devise_controller? && resource_name == :user
+          return unless request.get?
+          if (request.path != "/admins/sign_in" &&
+              request.path != "/admins/sign_up" &&
+              request.path != "/admins/password/new" &&
+              request.path != "/admins/password/edit" &&
+              request.path != "/admins/confirmation" &&
+              request.path != "/admins/edit" &&
+              request.path != "/admins/sign_out" &&
+              !request.xhr?)
+              store_location_for(:admin, request.fullpath)
+            end
+          end 
+      end
+
   end
 
   def after_sign_in_path_for(resource)
