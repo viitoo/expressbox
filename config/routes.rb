@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-
+  get  'home/no_login'
   get 'admin/index'
   get 'box/index'
   get 'home/index'
