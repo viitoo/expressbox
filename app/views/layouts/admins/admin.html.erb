@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Basic -->
+  <meta name="author" content="kw0lf.org">
+  <meta name="keywords" content="Courier,Transport,Peru">
+  <meta name="description" content="Expressbox logistic ">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Bienvenido a tu ExpressBox</title>
+
+
+  <%= stylesheet_link_tag  'admin/admin.css' %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,900italic,900,700italic,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+  <style>
+    .date.required.form-control
+    {
+    display: inline-block;
+    width: 32%;
+    margin-right: 5px;
+    }</style>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- HEADER
+  ============================================= -->
+
+<section id="container" class="">
+    <!--header start-->
+    <% if user_signed_in?   %>
+          <%= render "header_box"%>
+          <!--header end-->
+          <!--sidebar start-->
+          <%= render "menu_box"%>
+          <!--sidebar end-->
+          <!--main content start-->
+          <%= render "main_content_box"%>
+          <!--main content end-->
+    <% else %>
+          <%= yield %>
+          <%#= link_to('Login', new_user_session_path)  %>
+<% end %>
+
+</section>
+
+</body>
+
+<%= javascript_include_tag 'admin/jquery.js','admin/bootstrap.min.js','admin/jquery.scrollTo.min.js','admin/jquery.nicescroll.js','admin/common-scripts.js','admin/jquery.stepy.js' , "admin/jquery-ui-1.9.2.custom.min.js", "admin/bootstrap-switch.js", "admin/jquery.tagsinput.js", "admin/ga.js", "admin/bootstrap-datepicker.js", "admin/date.js", "admin/daterangepicker.js","admin/form-component.js"%>
+<script>
+
+    //step wizard
+
+    $(function() {
+        $('#default').stepy({
+            backLabel: 'Anterior',
+            block: true,
+            nextLabel: 'Siguiente',
+            titleClick: true,
+            titleTarget: '.stepy-tab'
+        });
+    });
+</script>
+
+</html>

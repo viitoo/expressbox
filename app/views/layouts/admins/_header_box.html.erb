@@ -1,0 +1,57 @@
+<header class="header white-bg">
+    <div class="sidebar-toggle-box">
+        <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+    </div>
+    <!--logo start-->
+     <%= link_to image_tag("logo_box.png"), box_index_path, class: "logo" %>
+    <!--logo end-->
+    <div class="nav notify-row" id="top_menu">
+      <!--  notification start -->
+      <ul class="nav top-menu">
+        <!-- settings start -->
+
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="icon-envelope-alt"></i>
+                <span class="badge bg-important">5</span>
+            </a>
+        </li>
+        <!-- inbox dropdown end -->
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                <i class="icon-bell-alt"></i>
+                <span class="badge bg-warning">7</span>
+            </a>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    </div>
+    <div class="top-nav ">
+        <ul class="nav pull-right top-menu">
+        <% if user_signed_in? %>
+
+          <li><%= link_to edit_user_registration_path do %>
+                <i class="icon-cog"></i> Configuracion</a>
+              <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path  do %>
+            <i class="icon-key"></i>Logout
+            <% end %>
+          </li>
+
+        <% else %>
+          <li>
+          <%= link_to('Login', new_user_session_path)  %>
+          </li>
+        <% end %>
+
+            </li>
+            <!-- user login dropdown end -->
+        </ul>
+    </div>
+</header>
