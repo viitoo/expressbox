@@ -6,9 +6,11 @@
   <section id="intro" class="intro-parallax">
     <div class="container">
       <div class="row">
+
    <% flash.each do |key, value| %>
-        <div class="alert alert"><%= value %></div>
+        <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+
         <!-- Intro Section Description -->
         <div id="intro_description" class="col-sm-7 col-md-7">
 
