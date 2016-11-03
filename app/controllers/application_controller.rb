@@ -20,15 +20,18 @@ end
 
 
 def after_sign_out_path_for(resource)
-  flash[:success] = "Su sesion ha sido cerrada, gracias por usar ExpressBox"
-  home_index_path
+  if devise_controller? && resource_name == :admin
+    new_admin_session_path
+  else
+    new_user_session_path
+  end
 end
 
 
 
  def layout_by_resource
   if devise_controller? && resource_name == :admin
-     "admins"
+     "admin"
    else
      if devise_controller? && resource_name == :user
       "devise"
