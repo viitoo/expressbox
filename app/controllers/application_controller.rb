@@ -28,16 +28,15 @@ def after_sign_out_path_for(resource)
 end
 
 
-
- def layout_by_resource
-  if devise_controller? && resource_name == :admin
-     "admin"
-   else
-     if devise_controller? && resource_name == :user
-      "devise"
-    end
-   end
+def layout_by_resource
+if devise_controller? && resource_name == :admin
+   "admin"
+ else
+   if devise_controller? && resource_name == :user
+    "devise"
+  end
  end
+end
 
 
 

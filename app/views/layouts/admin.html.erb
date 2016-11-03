@@ -9,11 +9,11 @@
   <!-- Basic -->
   <meta name="author" content="kw0lf.org">
   <meta name="keywords" content="Courier,Transport,Peru">
-  <meta name="description" content="Expressbox logistic ">
+  <meta name="description" content="Expressbox logistic Admin">
 
   <!-- Mobile Specific Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Bienvenido a tu ExpressBox</title>
+  <title>Bienvenido Administrador</title>
 
 
   <%= stylesheet_link_tag  'admin/admin.css' %>
@@ -34,18 +34,18 @@
 
 <section id="container" class="">
     <!--header start-->
-    <% if user_signed_in?   %>
-          <%= render "header_box"%>
+    <% if admin_signed_in? %>
+          <%= render "layouts/admins/header_box"%>
           <!--header end-->
           <!--sidebar start-->
-          <%= render "menu_box"%>
+          <%= render "layouts/admins/menu_box"%>
           <!--sidebar end-->
           <!--main content start-->
-          <%= render "main_content_box"%>
+          <%= render "layouts/admins/main_content_box"%>
           <!--main content end-->
     <% else %>
           <%= yield %>
-          <%#= link_to('Login', new_user_session_path)  %>
+          <%#= link_to('Login', new_admin_session_path)  %>
 <% end %>
 
 </section>

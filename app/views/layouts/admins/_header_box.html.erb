@@ -32,21 +32,21 @@
     </div>
     <div class="top-nav ">
         <ul class="nav pull-right top-menu">
-        <% if user_signed_in? %>
+        <% if admin_signed_in? %>
 
-          <li><%= link_to edit_user_registration_path do %>
+          <li><%= link_to edit_admin_registration_path do %>
                 <i class="icon-cog"></i> Configuracion</a>
               <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path  do %>
+            <%= link_to destroy_admin_session_path  do %>
             <i class="icon-key"></i>Logout
             <% end %>
           </li>
 
         <% else %>
           <li>
-          <%= link_to('Login', new_user_session_path)  %>
+          <%= link_to('Login', new_admin_session_path)  %>
           </li>
         <% end %>
 
