@@ -4,7 +4,7 @@ class PrealertsController < ApplicationController
   layout "box"
 
     def prealert_owner
-      if !current_user.blank?
+      if !current_user.blank? or !current_admin.blank?
           unless @prealert.user_id == current_user.id
             flash[:notice] = 'Accedo denegado , tu no eres el creador de esta Prealerta'
             redirect_to prealerts_path

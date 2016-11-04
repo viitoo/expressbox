@@ -1,23 +1,3 @@
 <tbody>
-  <% @prealerts.each do |prealert| %>
-    <tr>
-      <td><%= prealert.box_track%> </td>
-      <td class="hidden-phone"><%= prealert.curier%></td>
-      <td><%= prealert.tracking_number%></td>
-      <td><%= prealert.shop %></td>
-      <td><%= prealert.value_price %>$</td>
-      <td><%= prealert.created_at.strftime("%d/%m/%Y")%> </td>
-      <td>
-      <%= link_to prealert do %>
-          <button class="btn btn-success btn-xs"><i class="icon-ok"></i></button>
-      <%end%>
-      <%= link_to edit_prealert_path(prealert) do%>
-          <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button>
-      <%end %>
-      <%= link_to prealert ,method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
-      <%end%>
-      </td>
-    </tr>
-  <% end %>
+
 </tbody>

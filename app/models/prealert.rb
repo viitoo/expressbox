@@ -5,7 +5,7 @@ class Prealert < ActiveRecord::Base
   mount_uploader :image2 ,ImageUploader
   before_create :box_number
   belongs_to :user
-
+  has_many :orders
   def box_number
     begin
       numero = SecureRandom.random_number(9999999)
@@ -17,7 +17,7 @@ class Prealert < ActiveRecord::Base
     where("(box_track LIKE ? or tracking_number LIKE ?) and user_id = ? ", "%#{search}%","%#{search}%",current_user)
   end
 
-  
+
   def name
     file.path.split("/").last
   end
